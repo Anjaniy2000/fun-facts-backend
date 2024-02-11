@@ -1,0 +1,32 @@
+fun-facts-backend
+
+entities:
+	- User
+		- name
+		- email
+		- password
+		- facts (one-to-many)
+		- likes (one-to-many)
+		- superlikes (one-to-many)
+		- dislikes (one-to-many)
+	- Fact
+		- fact
+		- source
+		- category
+		- postedBy (many-to-one)
+		- likes (one-to-many)
+		- superlikes (one-to-many)
+		- dislikes (one-to-many)
+		- isDisputed
+		- likesCount
+		- dislikesCount
+		- superLikesCount
+	- Like
+		- fact
+		- likedBy (one-to-one)
+	- SuperLike
+		- fact
+		- superlikedBy (one-to-one)
+	- Dislike
+		- fact
+		- dislikedBy (one-to-one)
