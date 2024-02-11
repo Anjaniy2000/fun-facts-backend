@@ -1,13 +1,13 @@
 package com.anjaniy.funfactsbackend.models.entities;
 
+import com.anjaniy.funfactsbackend.models.entities.abstractEntity.AbstractEntity;
 import com.anjaniy.funfactsbackend.models.enums.Category;
 import jakarta.persistence.*;
 import java.util.List;
-import java.util.UUID;
 
 @Table
 @Entity(name = "facts")
-public class Fact extends AbstractEntity<UUID> {
+public class Fact extends AbstractEntity {
     @Column(name = "fact", nullable = false)
     private String fact;
     @Column(name = "source", nullable = false)
@@ -38,7 +38,6 @@ public class Fact extends AbstractEntity<UUID> {
     }
 
     public Fact(
-        UUID id,
         String fact,
         String source,
         Category category,
@@ -51,7 +50,6 @@ public class Fact extends AbstractEntity<UUID> {
         Integer superLikesCount,
         Boolean isDisputed) {
 
-        setId(id);
         this.fact = fact;
         this.source = source;
         this.category = category;
