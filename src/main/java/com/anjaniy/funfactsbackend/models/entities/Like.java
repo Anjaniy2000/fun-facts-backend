@@ -1,11 +1,11 @@
 package com.anjaniy.funfactsbackend.models.entities;
 
+import com.anjaniy.funfactsbackend.models.entities.abstractEntity.AbstractEntity;
 import jakarta.persistence.*;
-import java.util.UUID;
 
 @Table
 @Entity(name = "likes")
-public class Like extends AbstractEntity<UUID> {
+public class Like extends AbstractEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fact_id_fk", referencedColumnName = "id")
     private Fact fact;
@@ -18,11 +18,9 @@ public class Like extends AbstractEntity<UUID> {
     }
 
     public Like(
-        UUID id,
         Fact fact,
         User likedBy) {
 
-        setId(id);
         this.fact = fact;
         this.likedBy = likedBy;
     }
