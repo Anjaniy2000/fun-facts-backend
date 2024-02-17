@@ -1,12 +1,12 @@
 package com.anjaniy.funfactsbackend.models.entities;
 
-import com.anjaniy.funfactsbackend.models.entities.abstractEntity.AbstractEntity;
 import jakarta.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Table
 @Entity(name = "users")
-public class User extends AbstractEntity {
+public class User extends AbstractEntity<UUID> {
     @Column(name = "user_name", nullable = false)
     private String userName;
     @Column(name = "email", nullable = false, unique = true)
@@ -27,6 +27,7 @@ public class User extends AbstractEntity {
     }
 
     public User(
+        UUID id,
         String userName,
         String email,
         String password,

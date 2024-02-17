@@ -1,13 +1,13 @@
 package com.anjaniy.funfactsbackend.models.entities;
 
-import com.anjaniy.funfactsbackend.models.entities.abstractEntity.AbstractEntity;
 import com.anjaniy.funfactsbackend.models.enums.Category;
 import jakarta.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Table
 @Entity(name = "facts")
-public class Fact extends AbstractEntity {
+public class Fact extends AbstractEntity<UUID> {
     @Column(name = "fact", nullable = false)
     private String fact;
     @Column(name = "source", nullable = false)
@@ -38,6 +38,7 @@ public class Fact extends AbstractEntity {
     }
 
     public Fact(
+        UUID id,
         String fact,
         String source,
         Category category,
