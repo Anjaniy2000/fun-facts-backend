@@ -1,12 +1,10 @@
 package com.anjaniy.funfactsbackend.models.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
+@MappedSuperclass
 public class AbstractEntity <T extends Serializable> {
 
     @Id

@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS super_likes (
+    id UUID PRIMARY KEY,
+    CONSTRAINT fact_id_fk FOREIGN KEY(id) REFERENCES facts(id),
+    CONSTRAINT user_id_fk FOREIGN KEY(id) REFERENCES users(id)
+);

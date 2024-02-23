@@ -23,6 +23,7 @@ public class Like extends AbstractEntity<UUID> {
         Fact fact,
         User likedBy) {
 
+        setId(id);
         this.fact = fact;
         this.likedBy = likedBy;
     }
