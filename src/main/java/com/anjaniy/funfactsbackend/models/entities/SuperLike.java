@@ -22,6 +22,7 @@ public class SuperLike extends AbstractEntity<UUID> {
         Fact fact,
         User superLikedBy) {
 
+        setId(id);
         this.fact = fact;
         this.superLikedBy = superLikedBy;
     }

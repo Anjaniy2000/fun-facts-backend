@@ -23,6 +23,7 @@ public class Dislike extends AbstractEntity<UUID> {
         Fact fact,
         User dislikedBy) {
 
+        setId(id);
         this.fact = fact;
         this.dislikedBy = dislikedBy;
     }

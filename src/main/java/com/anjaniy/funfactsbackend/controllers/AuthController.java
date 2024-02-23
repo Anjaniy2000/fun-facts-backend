@@ -24,9 +24,6 @@ public class AuthController implements AuthAPI {
     @Override
     @PostMapping("/userRegistration")
     public ResponseEntity<UserRegistrationResponse> userRegistration(@RequestBody @Valid UserRegistrationRequest userRegistrationRequest) {
-        System.out.println(userRegistrationRequest.getUserName());
-        System.out.println(userRegistrationRequest.getEmail());
-        System.out.println(userRegistrationRequest.getPassword());
         return authService.userRegistration(userRegistrationRequest);
     }
 }
