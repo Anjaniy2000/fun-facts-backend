@@ -1,6 +1,8 @@
 CREATE TABLE IF NOT EXISTS users (
     id UUID PRIMARY KEY,
     user_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+
+    CONSTRAINT role_id_fk FOREIGN KEY(id) REFERENCES user_roles(id)
 );

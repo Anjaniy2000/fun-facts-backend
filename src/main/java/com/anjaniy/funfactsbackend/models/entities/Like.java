@@ -19,11 +19,9 @@ public class Like extends AbstractEntity<UUID> {
     }
 
     public Like(
-        UUID id,
         Fact fact,
         User likedBy) {
 
-        setId(id);
         this.fact = fact;
         this.likedBy = likedBy;
     }

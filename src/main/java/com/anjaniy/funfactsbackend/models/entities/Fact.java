@@ -38,7 +38,6 @@ public class Fact extends AbstractEntity<UUID> {
     }
 
     public Fact(
-        UUID id,
         String fact,
         String source,
         Category category,
@@ -51,7 +50,6 @@ public class Fact extends AbstractEntity<UUID> {
         Integer superLikesCount,
         Boolean isDisputed) {
 
-        setId(id);
         this.fact = fact;
         this.source = source;
         this.category = category;
