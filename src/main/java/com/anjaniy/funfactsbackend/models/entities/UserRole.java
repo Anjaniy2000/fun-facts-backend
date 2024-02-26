@@ -17,9 +17,7 @@ public class UserRole extends AbstractEntity<UUID> {
 
     }
 
-    public UserRole(
-        String name) {
-
+    public UserRole(String name) {
         this.name = name;
     }
 
