@@ -12,7 +12,10 @@ public class User extends AbstractEntity<UUID> {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
     @Column(name = "password", nullable = false)
-    private String password;
+    private String     password;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id_fK", referencedColumnName = "id")
+    private UserRole userRole;
     @OneToMany(mappedBy = "postedBy", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Fact> facts;
     @OneToMany(mappedBy = "likedBy", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -27,19 +30,19 @@ public class User extends AbstractEntity<UUID> {
     }
 
     public User(
-        UUID id,
         String userName,
         String email,
         String password,
+        UserRole userRole,
         List<Fact> facts,
         List<Like> likes,
         List<Dislike> dislikes,
         List<SuperLike> superLikes) {
 
-        setId(id);
         this.userName = userName;
         this.email = email;
         this.password = password;
+        this.userRole = userRole;
         this.facts = facts;
         this.likes = likes;
         this.dislikes = dislikes;
@@ -68,6 +71,14 @@ public class User extends AbstractEntity<UUID> {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserRole getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
     }
 
     public List<Fact> getFacts() {
@@ -109,6 +120,7 @@ public class User extends AbstractEntity<UUID> {
             "userName='" + userName + '\'' +
             ", email='" + email + '\'' +
             ", password='" + password + '\'' +
+            ", userRole='" + userRole + '\'' +
             ", facts=" + facts +
             ", likes=" + likes +
             ", dislikes=" + dislikes +

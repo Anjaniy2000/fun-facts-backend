@@ -6,6 +6,7 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="create initial tables" author="anjaniy01salekar@gmail.com">
+        <sqlFile path="user_roles.psql" relativeToChangelogFile="true"/>
         <sqlFile path="users.psql" relativeToChangelogFile="true"/>
         <sqlFile path="facts.psql" relativeToChangelogFile="true"/>
         <sqlFile path="likes.psql" relativeToChangelogFile="true"/>
