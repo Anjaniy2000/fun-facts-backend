@@ -26,7 +26,7 @@ public class AuthController implements AuthAPI {
     @PostMapping("/registration")
     @Override
     public ResponseEntity<UserRegistrationResponse> registration(@RequestBody @Valid UserRegistrationRequest userRegistrationRequest) {
-        return null;
+        return authService.registration(userRegistrationRequest);
     }
 
     @PostMapping("/login")

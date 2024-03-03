@@ -36,7 +36,7 @@ public class SecurityConfig {
                     CorsConfiguration corsConfiguration = new CorsConfiguration();
                     corsConfiguration.setAllowedOrigins(Collections.singletonList("http://localhost:3000"));
                     corsConfiguration.setAllowedMethods(Arrays.asList("GET","POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
-                    corsConfiguration.setExposedHeaders(Arrays.asList("Authorization", "content-type"));
+                    corsConfiguration.setExposedHeaderspg(Arrays.asList("Authorization", "content-type"));
                     corsConfiguration.setAllowedHeaders(Arrays.asList("Authorization", "content-type"));
                     return corsConfiguration;
                 };
