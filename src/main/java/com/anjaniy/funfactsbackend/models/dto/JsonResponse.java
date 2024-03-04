@@ -1,25 +1,24 @@
 package com.anjaniy.funfactsbackend.models.dto;
 
-public class ResponseEntity<T> {
-
-    private T responseBody;
+public class JsonResponse {
+    private Object responseBody;
     private Boolean responseStatus;
     private String responseMessage;
 
-    public ResponseEntity() {
+    public JsonResponse() {
     }
 
-    public ResponseEntity(T responseBody, Boolean responseStatus, String responseMessage) {
+    public JsonResponse(Object responseBody, Boolean responseStatus, String responseMessage) {
         this.responseBody = responseBody;
         this.responseStatus = responseStatus;
         this.responseMessage = responseMessage;
     }
 
-    public T getResponseBody() {
+    public Object getResponseBody() {
         return responseBody;
     }
 
-    public void setResponseBody(T responseBody) {
+    public void setResponseBody(Object responseBody) {
         this.responseBody = responseBody;
     }
 

@@ -12,7 +12,7 @@ public class User extends AbstractEntity<UUID> {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
     @Column(name = "password", nullable = false)
-    private String     password;
+    private String password;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id_fK", referencedColumnName = "id")
     private UserRole userRole;
