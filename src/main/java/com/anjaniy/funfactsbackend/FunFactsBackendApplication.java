@@ -5,6 +5,10 @@ import com.anjaniy.funfactsbackend.repositories.UserRoleRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.UUID;
 
@@ -36,5 +40,10 @@ public class FunFactsBackendApplication implements CommandLineRunner {
             userRoleRepository.save(new UserRole("USER"));
         }
 
+    }
+
+    @Bean
+    public JavaMailSender javaMailSender() {
+        return new JavaMailSenderImpl();
     }
 }

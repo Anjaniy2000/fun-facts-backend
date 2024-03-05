@@ -1,86 +1,87 @@
 package com.anjaniy.funfactsbackend.utilities;
 
-import com.anjaniy.funfactsbackend.models.dto.JsonResponse;
+import com.anjaniy.funfactsbackend.models.dto.ResponseEntity;
 import com.anjaniy.funfactsbackend.models.dto.request.LoginRequest;
 import com.anjaniy.funfactsbackend.models.dto.request.UserRegistrationRequest;
+import org.springframework.http.HttpStatus;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validators {
 
-    public static JsonResponse validate(UserRegistrationRequest userRegistrationRequest) {
+    public static ResponseEntity validate(UserRegistrationRequest userRegistrationRequest) {
         if(userRegistrationRequest.getUserName().isBlank() || userRegistrationRequest.getUserName().length() < 10) {
-            return new JsonResponse(
+            return new ResponseEntity(
                 "",
-                false,
+                HttpStatus.BAD_REQUEST.value(),
                 "Username is required!"
             );
         }
         if(userRegistrationRequest.getEmail().isBlank()) {
-            return new JsonResponse(
+            return new ResponseEntity(
                 "",
-                false,
+                HttpStatus.BAD_REQUEST.value(),
                 "Email is required!"
             );
         }
         if(!validateEmail(userRegistrationRequest.getEmail())) {
-            return new JsonResponse(
+            return new ResponseEntity(
                 "",
-                false,
+                HttpStatus.BAD_REQUEST.value(),
                 "Valid email is required!"
             );
         }
         if(userRegistrationRequest.getPassword().isBlank()) {
-            return new JsonResponse(
+            return new ResponseEntity(
                 "",
-                false,
+                HttpStatus.BAD_REQUEST.value(),
                 "Password is required!"
             );
         }
         if(!validatePassword(userRegistrationRequest.getPassword())) {
-            return new JsonResponse(
+            return new ResponseEntity(
                 "",
-                false,
+                HttpStatus.BAD_REQUEST.value(),
                 "Valid password is required!"
             );
         }
         if(userRegistrationRequest.getRoleId().isBlank()) {
-            return new JsonResponse(
+            return new ResponseEntity(
                 "",
-                false,
+                HttpStatus.BAD_REQUEST.value(),
                 "Role is required!"
             );
         }
         return null;
     }
 
-    public static JsonResponse validate(LoginRequest loginRequest) {
+    public static ResponseEntity validate(LoginRequest loginRequest) {
         if(loginRequest.getEmail().isBlank()) {
-            return new JsonResponse(
+            return new ResponseEntity(
                 "",
-                false,
+                HttpStatus.BAD_REQUEST.value(),
                 "Email is required!"
             );
         }
         if(!validateEmail(loginRequest.getEmail())) {
-            return new JsonResponse(
+            return new ResponseEntity(
                 "",
-                false,
+                HttpStatus.BAD_REQUEST.value(),
                 "Valid email is required!"
             );
         }
         if(loginRequest.getPassword().isBlank()) {
-            return new JsonResponse(
+            return new ResponseEntity(
                 "",
-                false,
+                HttpStatus.BAD_REQUEST.value(),
                 "Password is required!"
             );
         }
         if(!validatePassword(loginRequest.getPassword())) {
-            return new JsonResponse(
+            return new ResponseEntity(
                 "",
-                false,
+                HttpStatus.BAD_REQUEST.value(),
                 "Valid password is required!"
             );
         }

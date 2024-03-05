@@ -1,5 +1,7 @@
 CREATE TABLE IF NOT EXISTS likes (
     id UUID PRIMARY KEY,
-    CONSTRAINT fact_id_fk FOREIGN KEY(id) REFERENCES facts(id),
-    CONSTRAINT user_id_fk FOREIGN KEY(id) REFERENCES users(id)
+    user_id_fk UUID NOT NULL,
+    fact_id_fk UUID NOT NULL,
+    CONSTRAINT fact_id_fk FOREIGN KEY(fact_id_fk) REFERENCES facts(id),
+    CONSTRAINT user_id_fk FOREIGN KEY(user_id_fk) REFERENCES users(id)
 );

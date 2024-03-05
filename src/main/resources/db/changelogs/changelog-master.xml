@@ -12,5 +12,6 @@
         <sqlFile path="likes.psql" relativeToChangelogFile="true"/>
         <sqlFile path="dislikes.psql" relativeToChangelogFile="true"/>
         <sqlFile path="super_likes.psql" relativeToChangelogFile="true"/>
+        <sqlFile path="verification_tokens.psql" relativeToChangelogFile="true"/>
     </changeSet>
 </databaseChangeLog>

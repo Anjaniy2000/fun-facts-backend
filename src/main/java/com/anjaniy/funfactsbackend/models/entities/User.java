@@ -16,6 +16,8 @@ public class User extends AbstractEntity<UUID> {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id_fK", referencedColumnName = "id")
     private UserRole userRole;
+    @Column(name = "is_enabled")
+    private boolean isEnabled;
     @OneToMany(mappedBy = "postedBy", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Fact> facts;
     @OneToMany(mappedBy = "likedBy", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -34,6 +36,7 @@ public class User extends AbstractEntity<UUID> {
         String email,
         String password,
         UserRole userRole,
+        boolean isEnabled,
         List<Fact> facts,
         List<Like> likes,
         List<Dislike> dislikes,
@@ -43,6 +46,7 @@ public class User extends AbstractEntity<UUID> {
         this.email = email;
         this.password = password;
         this.userRole = userRole;
+        this.isEnabled = isEnabled;
         this.facts = facts;
         this.likes = likes;
         this.dislikes = dislikes;
@@ -79,6 +83,14 @@ public class User extends AbstractEntity<UUID> {
 
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
+    }
+
+    public boolean isEnabled() {
+        return this.isEnabled;
+    }
+
+    public void setEnabled(boolean isEnabled) {
+        this.isEnabled = isEnabled;
     }
 
     public List<Fact> getFacts() {
@@ -121,6 +133,7 @@ public class User extends AbstractEntity<UUID> {
             ", email='" + email + '\'' +
             ", password='" + password + '\'' +
             ", userRole='" + userRole + '\'' +
+            ", isEnabled='" + isEnabled + '\'' +
             ", facts=" + facts +
             ", likes=" + likes +
             ", dislikes=" + dislikes +

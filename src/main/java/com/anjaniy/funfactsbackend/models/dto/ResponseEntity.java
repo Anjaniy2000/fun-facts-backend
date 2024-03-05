@@ -1,14 +1,16 @@
 package com.anjaniy.funfactsbackend.models.dto;
 
-public class JsonResponse {
+import org.springframework.http.HttpStatus;
+
+public class ResponseEntity {
     private Object responseBody;
-    private Boolean responseStatus;
+    private int responseStatus;
     private String responseMessage;
 
-    public JsonResponse() {
+    public ResponseEntity() {
     }
 
-    public JsonResponse(Object responseBody, Boolean responseStatus, String responseMessage) {
+    public ResponseEntity(Object responseBody, Integer responseStatus, String responseMessage) {
         this.responseBody = responseBody;
         this.responseStatus = responseStatus;
         this.responseMessage = responseMessage;
@@ -22,11 +24,11 @@ public class JsonResponse {
         this.responseBody = responseBody;
     }
 
-    public Boolean getResponseStatus() {
+    public int getResponseStatus() {
         return responseStatus;
     }
 
-    public void setResponseStatus(Boolean responseStatus) {
+    public void setResponseStatus(int responseStatus) {
         this.responseStatus = responseStatus;
     }
 
