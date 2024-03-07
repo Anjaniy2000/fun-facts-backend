@@ -5,6 +5,8 @@ import com.anjaniy.funfactsbackend.models.dto.request.LoginRequest;
 import com.anjaniy.funfactsbackend.models.dto.request.UserRegistrationRequest;
 import org.springframework.http.HttpStatus;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,11 +48,18 @@ public class Validators {
                 "Valid password is required!"
             );
         }
-        if(userRegistrationRequest.getRoleId().isBlank()) {
+        if(userRegistrationRequest.getUserRoleName().isBlank()) {
             return new ResponseEntity(
                 "",
                 HttpStatus.BAD_REQUEST.value(),
-                "Role is required!"
+                "User role is required!"
+            );
+        }
+        if(!validateUserRole(userRegistrationRequest.getUserRoleName().toUpperCase())) {
+            return new ResponseEntity(
+                "",
+                HttpStatus.BAD_REQUEST.value(),
+                "Valid user role is required!"
             );
         }
         return null;
@@ -103,5 +112,9 @@ public class Validators {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
+    }
+
+    public static boolean validateUserRole(String userRoleName) {
+        return List.of("ADMIN", "USER", "MODERATOR").contains(userRoleName);
     }
 }

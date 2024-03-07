@@ -1,5 +1,6 @@
 package com.anjaniy.funfactsbackend.models.dto.request;
 
+import com.anjaniy.funfactsbackend.models.entities.UserRole;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -7,7 +8,11 @@ public class UserRegistrationRequest {
     private String userName;
     private String email;
     private String password;
-    private String roleId;
+    private String userRoleName;
+
+    public UserRegistrationRequest() {
+
+    }
 
     public String getUserName() {
         return userName;
@@ -21,8 +26,8 @@ public class UserRegistrationRequest {
         return password;
     }
 
-    public String getRoleId() {
-        return roleId;
+    public String getUserRoleName() {
+        return userRoleName;
     }
 
     @Override
@@ -31,7 +36,7 @@ public class UserRegistrationRequest {
             "userName='" + userName + '\'' +
             ", email='" + email + '\'' +
             ", password='" + password + '\'' +
-            ", roleId='" + roleId + '\'' +
+            ", userRoleName='" + userRoleName + '\'' +
             '}';
     }
 }

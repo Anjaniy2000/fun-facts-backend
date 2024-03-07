@@ -5,11 +5,9 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import static jakarta.persistence.FetchType.LAZY;
-
-@Table(name = "verification_tokens")
+@Table(name = "reset_password_tokens")
 @Entity
-public class VerificationToken extends AbstractEntity<UUID> {
+public class ResetPasswordToken extends AbstractEntity<UUID> {
     @Column(name = "token", nullable = false)
     private UUID token;
     @OneToOne(fetch = FetchType.LAZY)
@@ -18,10 +16,11 @@ public class VerificationToken extends AbstractEntity<UUID> {
     @Column(name = "expiry_date", nullable = false)
     private LocalDateTime expiryDate;
 
-    public VerificationToken() {
+    public ResetPasswordToken() {
+
     }
 
-    public VerificationToken(UUID token, User user, LocalDateTime expiryDate) {
+    public ResetPasswordToken(UUID token, User user, LocalDateTime expiryDate) {
         this.token = token;
         this.user = user;
         this.expiryDate = expiryDate;
@@ -53,7 +52,7 @@ public class VerificationToken extends AbstractEntity<UUID> {
 
     @Override
     public String toString() {
-        return "VerificationToken{" +
+        return "ResetPasswordToken{" +
             "token=" + token +
             ", user=" + user +
             ", expiryDate=" + expiryDate +
